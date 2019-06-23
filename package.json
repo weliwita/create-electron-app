@@ -1,0 +1,85 @@
+{
+  "name": "material-app",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "./",
+  "dependencies": {
+    "@material-ui/core": "3.9.2",
+    "@material-ui/icons": "3.0.2",
+    "chartist": "0.10.1",
+    "classnames": "2.2.6",
+    "history": "4.7.2",
+    "moment": "^2.24.0",
+    "perfect-scrollbar": "1.4.0",
+    "prettier": "1.16.4",
+    "prop-types": "15.7.1",
+    "rc-progress": "^2.3.0",
+    "react": "16.8.1",
+    "react-chartist": "0.13.3",
+    "react-desktop": "^0.3.9",
+    "react-dom": "16.8.1",
+    "react-google-maps": "9.4.5",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "2.1.5",
+    "react-swipeable-views": "0.13.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "sanitize-filename": "^1.6.1",
+    "ytdl-core": "^0.29.1"
+  },
+  "build": {
+    "appId": "com.weliwita.react-material-ra",
+    "productName": "my product",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories":{
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "license": "LICENSE",
+      "runAfterFinish": true
+    }
+  },
+  "main": "public/electron.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "set ELECTRON_DISABLE_SECURITY_WARNINGS=true && set ELECTRON_START_URL=http://localhost:3000/ && set IS_DEV=1 && electron .",
+    "dev": "concurrently -k \"npm start\" \"wait-on http://localhost:3000 && npm run electron-dev\"",
+    "prod-win": "set DEBUG=electron-packager && electron-packager . material-app --platform=win32 --arch=x64  --overwrite",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^4.0.4",
+    "electron-builder": "^20.43.0",
+    "electron-packager": "^13.1.0",
+    "eslint-config-prettier": "4.0.0",
+    "eslint-plugin-prettier": "3.0.1",
+    "typescript": "^3.5.2",
+    "wait-on": "^3.2.0"
+  }
+}
